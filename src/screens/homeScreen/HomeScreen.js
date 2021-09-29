@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./homeScreen.css";
+import { CardSection } from "./../../components/cardSection/CardSection";
 
 export class HomeScreen extends Component {
   render() {
     return (
       <div>
-        <h1>HomeScreen</h1>
+        <CardSection />
       </div>
     );
   }
