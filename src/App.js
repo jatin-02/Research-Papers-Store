@@ -1,11 +1,19 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Header } from "./header/Header";
+import { Header } from "./components/header/Header";
+import { HomeScreen } from "./screens/homeScreen/HomeScreen";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Router>
+        <Switch>
+          <Route path="/">
+            <Header />
+            <HomeScreen />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

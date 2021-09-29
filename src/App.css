@@ -1,0 +1,45 @@
+*:focus {
+  outline: none;
+}
+
+:root {
+  /* FONT */
+  --font-family: "Josefin Sans", sans-serif;
+
+  --font-size-large: 2.2rem;
+  --font-size-medium: 1.9rem;
+  --font-size-small: 1.5rem;
+
+  --font-weight-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-light: 300;
+
+  /* COLOR (bg-f7f5e9,) */
+  --black-primary: #000;
+  --black-secondary: #222;
+  --yellow-primary: rgb(255, 187, 0);
+  --yellow-secondary: rgb(255, 243, 74);
+}
+
+/*==================== BASE ====================*/
+ul {
+  list-style: none;
+  padding-left: 0rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+input {
+  font-family: "Josefin Sans", sans-serif;
+}
