@@ -1,0 +1,18 @@
+.cardSection {
+  margin-top: 2rem;
+}
+
+.cardSection_bottom {
+  display: flex;
+  overflow: auto;
+}
+
+.card_holder {
+  padding: 2rem;
+}
+
+.cardSection_top {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2rem;
+}
