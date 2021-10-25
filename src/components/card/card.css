@@ -1,6 +1,6 @@
 .card_container {
   padding: 1rem;
-  width: 18rem;
+  width: 15rem;
   background-color: var(--black-primary);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
@@ -18,7 +18,7 @@
 }
 
 .card_content {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   margin-top: 1rem;
 }
 
