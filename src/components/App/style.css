@@ -5,15 +5,12 @@
 :root {
   /* FONT */
   --font-family: "Josefin Sans", sans-serif;
-
   --font-size-large: 2.2rem;
   --font-size-medium: 1.9rem;
   --font-size-small: 1.5rem;
-
   --font-weight-bold: 600;
   --font-weight-medium: 500;
   --font-weight-light: 300;
-
   /* COLOR */
   --black-primary: #000;
   --black-secondary: #222;
