@@ -2,6 +2,9 @@ import React from "react";
 import "./style.css";
 import Card from "../Card";
 
+// importing link
+import { Link } from "react-router-dom";
+
 const CardSection = () => {
   return (
     <div className="cardSection">
@@ -16,16 +19,24 @@ const CardSection = () => {
 
       <div className="cardSection_bottom">
         <div className="card_holder">
-          <Card />
+          <Link to="/single">
+            <Card />
+          </Link>
         </div>
         <div className="card_holder">
-          <Card />
+          <Link to="/single">
+            <Card />
+          </Link>
         </div>
         <div className="card_holder">
-          <Card />
+          <Link to="/single">
+            <Card />
+          </Link>
         </div>
         <div className="card_holder">
-          <Card />
+          <Link to="/single">
+            <Card />
+          </Link>
         </div>
       </div>
     </div>

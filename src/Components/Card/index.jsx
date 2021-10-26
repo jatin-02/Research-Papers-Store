@@ -25,7 +25,7 @@ const Card = () => {
 
           <div className="card_year card_detail">
             <p>
-              <span>year:</span> 2020
+              <span>Year:</span> 2020
             </p>
           </div>
         </div>

@@ -4,8 +4,7 @@ import CardSection from "../../Components/CardSection";
 
 const Home = () => {
   return (
-    <div>
-      helo i m home
+    <div className="home-page">
       <CardSection />
       <CardSection />
       <CardSection />

@@ -1,8 +1,11 @@
 import React from "react";
 
+// importing styles
+import "./style.css";
+
 const SinglePage = () => {
   return (
-    <div className="sinlge-page">
+    <div className="single-page">
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -16,22 +19,24 @@ const SinglePage = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-md-4">
-            <h2 className="title">
-              Lorem ipsum dolor, sit amet consectetur adipisicing.
-            </h2>
-            <h2 className="date">Lorem ipsum dolor sit amet.</h2>
-            <h2>Lorem, ipsum.</h2>
-            <p className="desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              labore porro et accusamus minus esse exercitationem voluptate quia
-              facere amet ut odit, perferendis earum aut inventore enim natus
-              quae sequi laboriosam rem officia delectus! Minima libero
-              excepturi, veniam voluptas corporis tempore nesciunt facere odio
-            </p>
-            <a href="" className="download-btn">
-              Downlaod
-            </a>
+          <div className="col-12 col-md-8">
+            <div className="details">
+              <h2 className="title">
+                Lorem ipsum dolor, sit amet consectetur adipisicing.
+              </h2>
+              <h2 className="date">Lorem ipsum dolor sit amet.</h2>
+              <h2>Lorem, ipsum.</h2>
+              <p className="desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                labore porro et accusamus minus esse exercitationem voluptate
+                quia facere amet ut odit, perferendis earum aut inventore enim
+                natus quae sequi laboriosam rem officia delectus! Minima libero
+                excepturi, veniam voluptas corporis tempore nesciunt facere odio
+              </p>
+              <a href="" className="download-btn">
+                Downlaod
+              </a>
+            </div>
           </div>
         </div>
       </div>

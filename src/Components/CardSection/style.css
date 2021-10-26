@@ -2,6 +2,10 @@
   margin-top: 2rem;
 }
 
+.cardSection a {
+  color: #fff;
+}
+
 .cardSection_bottom {
   display: flex;
   overflow: auto;
