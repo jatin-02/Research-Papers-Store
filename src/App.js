@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { Header } from "./components/header/Header";
-import { HomeScreen } from "./screens/homeScreen/HomeScreen";
+import { Header } from "./components/header/index.jsx";
+import { HomeScreen } from "./screens/homeScreen/index.jsx";
 
 function App() {
   return (

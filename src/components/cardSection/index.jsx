@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./cardSection.css";
-import { Card } from "./../card/Card";
+import "./style.css";
+import { Card } from "../card/index";
 
 export class CardSection extends Component {
   render() {

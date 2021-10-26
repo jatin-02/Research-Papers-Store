@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./header.css";
+import "./style.css";
 import { ImSearch } from "react-icons/im";
 import { Link } from "react-router-dom";
 
