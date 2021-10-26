@@ -1,17 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
-import { CardSection } from "../../Components/CardSection";
+import CardSection from "../../Components/CardSection";
 
-export class Home extends Component {
-  render() {
-    return (
-      <div>
-        <CardSection />
-        <CardSection />
-        <CardSection />
-      </div>
-    );
-  }
-}
+const Home = () => {
+  return (
+    <div>
+      helo i m home
+      <CardSection />
+      <CardSection />
+      <CardSection />
+    </div>
+  );
+};
 
 export default Home;
