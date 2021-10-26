@@ -14,11 +14,13 @@ const App = () => {
     <>
       <Router>
         <Header />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/hello" component={SinglePage} />
-          <Route component={NotFound} />
-        </Switch>
+        <div className="main-container">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/single" component={SinglePage} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
       </Router>
     </>
   );
