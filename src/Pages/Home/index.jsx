@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./style.css";
-import { CardSection } from "../../components/cardSection/index";
+import { CardSection } from "../../Components/CardSection";
 
-export class HomeScreen extends Component {
+export class Home extends Component {
   render() {
     return (
       <div>
@@ -14,4 +14,4 @@ export class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+export default Home;

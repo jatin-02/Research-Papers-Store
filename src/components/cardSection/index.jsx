@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import { Card } from "../card/index";
+import { Card } from "../Card";
 
 export class CardSection extends Component {
   render() {
