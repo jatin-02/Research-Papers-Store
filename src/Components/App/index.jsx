@@ -8,12 +8,14 @@ import Header from "../Header";
 import Home from "../../Pages/Home";
 import NotFound from "../../Pages/NotFound";
 import SinglePage from "../../Pages/SinglePage";
+import SideMenu from "../Sidebar";
 
 const App = () => {
   return (
     <>
       <Router>
         <Header />
+        <SideMenu />
         <div className="main-container">
           <Switch>
             <Route path="/" exact component={Home} />
