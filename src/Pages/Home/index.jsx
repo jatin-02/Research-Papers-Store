@@ -1,15 +1,10 @@
 import React from "react";
+
+// importing styles
 import "./style.css";
-import CardSection from "../../Components/CardSection";
 
 const Home = () => {
-  return (
-    <div className="home-page">
-      <CardSection />
-      <CardSection />
-      <CardSection />
-    </div>
-  );
+  return <div>home</div>;
 };
 
 export default Home;
