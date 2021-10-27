@@ -3,9 +3,9 @@ import React from "react";
 // importing styles
 import "./style.css";
 
-const SinglePage = () => {
+const DetailPage = () => {
   return (
-    <div className="single-page">
+    <div className="detail-page">
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -14,13 +14,13 @@ const SinglePage = () => {
           <div className="col-12 col-md-4">
             <div className="poster">
               <img
-                src="https://i.pinimg.com/originals/79/ea/5f/79ea5fa8eb9c62fb3c3659b770bf5976.jpg"
+                src="https://ars.els-cdn.com/content/image/X01968858.jpg"
                 alt=""
               />
             </div>
           </div>
           <div className="col-12 col-md-8">
-            <div className="details">
+            <div className="content">
               <h2 className="title">
                 Lorem ipsum dolor, sit amet consectetur adipisicing.
               </h2>
@@ -49,4 +49,4 @@ const SinglePage = () => {
   );
 };
 
-export default SinglePage;
+export default DetailPage;

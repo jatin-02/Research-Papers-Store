@@ -20,32 +20,32 @@ const Home = () => {
       </div>
       <div className="card-section row">
         <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/single">
+          <Link to="/detail">
             <Card />
           </Link>
         </div>
         <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/single">
+          <Link to="/detail">
             <Card />
           </Link>
         </div>
         <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/single">
+          <Link to="/detail">
             <Card />
           </Link>
         </div>
         <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/single">
+          <Link to="/detail">
             <Card />
           </Link>
         </div>
         <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/single">
+          <Link to="/detail">
             <Card />
           </Link>
         </div>
         <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/single">
+          <Link to="/detail">
             <Card />
           </Link>
         </div>

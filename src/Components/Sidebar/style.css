@@ -82,7 +82,7 @@
 .sidebar-search .search-box {
   padding: 7px 10px;
   border-radius: 5px;
-  background-color: #333;
+  background-color: #222;
 }
 .sidebar-search .search-input {
   margin-left: 10px;
@@ -175,7 +175,7 @@
   width: 100%;
   padding: 5px;
   border-radius: 5px;
-  background-color: #111;
+  background-color: #222;
 }
 
 .sidebar-footer .active {

@@ -6,23 +6,23 @@
   width: 100%;
 }
 
-.single-page img {
+.detail-page img {
   border-radius: 10px;
 }
 
-.single-page .details {
+.detail-page .content {
   margin-top: 20px;
 }
 
-.single-page h2 {
+.detail-page h2 {
   margin-bottom: 20px;
 }
 
-.single-page h2:last-child {
+.detail-page h2:last-child {
   margin-bottom: 0;
 }
 
-.single-page p {
+.detail-page p {
   font-weight: 100;
   margin: 30px;
 }
