@@ -1,8 +1,8 @@
 .page-title {
   color: #ffbb00;
   text-align: center;
-  font-weight: 800;
-  margin-bottom: 20px;
+  font-weight: 500;
+  margin: 20px 0;
   width: 100%;
 }
 
@@ -23,8 +23,9 @@
 }
 
 .detail-page p {
-  font-weight: 100;
-  margin: 30px;
+  font-weight: 300;
+  margin: 30px 0;
+  width: 100%;
 }
 
 .details-btn {
@@ -33,13 +34,19 @@
 
 .download-btn {
   display: block;
+  text-align: center;
   border: 2px solid #ffbb00;
   color: #ffbb00;
   padding: 10px 30px;
   border-radius: 5px;
-  font-weight: 900;
+  font-weight: 500;
   margin-right: 20px;
   margin-bottom: 20px;
+}
+
+.download-btn:hover {
+  color: #000;
+  background-color: #ffbb00;
 }
 
 @media (max-width: 600px) {
