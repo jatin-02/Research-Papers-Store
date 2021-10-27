@@ -13,7 +13,7 @@ const Home = () => {
       <div className="row">
         <div className="col-12 carousel">
           <img
-            src="https://wallpapercave.com/dwp1x/wp3324196.jpg"
+            src="https://www.wallpapertip.com/wmimgs/12-125679_cool-background.jpg"
             alt="iron man"
           />
         </div>

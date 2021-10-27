@@ -53,4 +53,7 @@
   .details-btn {
     flex-direction: column;
   }
+  .detail-page .content {
+    text-align: center;
+  }
 }

@@ -16,7 +16,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: #111;
+  background-color: #222;
 }
 
 .login-box-content {
@@ -28,12 +28,12 @@
 }
 
 .google-btn {
-  border: 3px solid #111;
+  border: 3px solid #222;
   display: flex;
   align-items: center;
   width: 194px;
   height: auto;
-  background-color: #111;
+  background-color: #222;
   border: solid 2px #ffbb00;
   border-radius: 5px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
@@ -45,7 +45,7 @@
   width: 40px;
   height: 40px;
   border-radius: 5px;
-  background-color: #111;
+  background-color: #222;
 }
 .google-btn .google-icon {
   width: 18px;
