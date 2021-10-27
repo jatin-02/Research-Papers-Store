@@ -22,7 +22,13 @@ const Sidebar = () => {
     <div className={`sidebar ${expand ? "expand" : ""}`}>
       <div className="sidebar-inner">
         <div className="sidebar-header">
-          {expand ? <Link to="/">ResearchIt</Link> : ""}
+          {expand ? (
+            <Link to="/">
+              Research<span>It</span>
+            </Link>
+          ) : (
+            ""
+          )}
           <div className="menu-btn" onClick={() => setExpand(!expand)}>
             {expand ? <MenuCloseIcon /> : <MenuOpenIcon />}
           </div>
