@@ -10,7 +10,8 @@ const LoginBtn = () => {
           alt="Google Icon"
         />
       </div>
-      <p className="btn-text">Sign in with Google</p>
+
+      <p className="btn-text">Login with Google</p>
     </div>
   );
 };
