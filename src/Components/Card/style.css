@@ -1,32 +1,32 @@
-.card_container {
+.card-container {
   padding: 1rem;
-  width: 15rem;
-  background-color: var(--black-primary);
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  width: 100%;
+  background-color: #222;
+  border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
-.card_container:hover {
+.card-container:hover {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.card_heading {
+.card-heading {
   font-size: 0.8rem;
   text-align: center;
-  color: var(--yellow-secondary);
+  color: #ffbb00;
 }
 
-.card_content {
+.card-content {
   font-size: 0.8rem;
   margin-top: 1rem;
 }
 
-.card_detail {
+.card-detail {
   font-weight: 300;
   padding: 0.5rem;
 }
 
-.card_detail span {
+.card-detail span {
   font-weight: 700;
 }

@@ -1,3 +1,12 @@
-.home-page {
-  margin-top: 90px;
+.carousel {
+  margin-bottom: 20px;
+}
+
+.carousel img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.card-section a {
+  color: #fff !important;
 }

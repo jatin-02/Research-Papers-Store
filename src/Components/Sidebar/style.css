@@ -1,0 +1,209 @@
+.sidebar {
+  width: 60px;
+  height: 100vh;
+  background-color: #222;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.sidebar .sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar.expand {
+  width: 300px;
+}
+
+.sidebar svg {
+  fill: #fff;
+  height: 20px;
+  width: 20px;
+}
+
+.sidebar svg path {
+  stroke: transparent;
+}
+
+.sidebar a {
+  color: #fff;
+}
+
+.sidebar-header,
+.sidebar-search .search-box,
+.sidebar-login-btn,
+.list-item,
+.user-profile {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar.expand .sidebar-header,
+.sidebar.expand .sidebar-search .search-box,
+.sidebar.expand .list-item {
+  justify-content: space-between;
+}
+
+/* sidebar header */
+.sidebar-header {
+  margin-bottom: 10px;
+}
+
+.sidebar-header a {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.sidebar.expand .sidebar-header svg {
+  height: 30px;
+  width: 30px;
+}
+
+.sidebar-header .menu-btn {
+  cursor: pointer;
+}
+
+/* sidebar search box */
+.sidebar-search {
+  margin-bottom: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+.sidebar-search .search-box {
+  padding: 7px 10px;
+  border-radius: 5px;
+  background-color: #333;
+}
+.sidebar-search .search-input {
+  margin-left: 10px;
+  color: #fff;
+  font-weight: 500;
+  width: 100%;
+}
+.sidebar-search input {
+  background-color: transparent;
+  border: 0;
+}
+
+/* sidebar-nav-menu */
+.sidebar-nav-menu {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar .list-item {
+  justify-content: flex-start;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.menu-icon {
+  position: relative;
+}
+
+.sidebar .menu-icon .tool-tip {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(85px, -50%);
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #1975e2;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 9999;
+}
+
+.sidebar .menu-icon .tool-tip::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  transform: translate(0px, -50%) rotate(45deg);
+  padding: 4px;
+  height: 4px;
+  width: 4px;
+  background-color: #1975e2;
+  z-index: -1;
+}
+
+.sidebar .menu-icon:hover .tool-tip {
+  opacity: 1;
+  pointer-events: all;
+}
+.sidebar.expand .menu-icon:hover .tool-tip {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar hr {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.sidebar.expand hr {
+  width: 100%;
+}
+
+.sidebar.expand .list-item {
+  justify-content: flex-start;
+}
+
+.sidebar .list-item.active {
+  background-color: #1975e2;
+}
+
+.sidebar.expand .list-item .menu-text {
+  margin-left: 10px;
+}
+
+/* sidebar footer */
+.sidebar-footer {
+  height: 50px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #111;
+}
+
+.sidebar-footer .active {
+  display: block;
+  background-color: #1975e2;
+  height: 100%;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.sidebar.expand .sidebar-login-btn {
+  padding-left: 10px;
+}
+
+.sidebar-login-btn {
+  height: 100%;
+}
+
+.sidebar.expand .sidebar-login-btn,
+.sidebar.expand .user-profile {
+  justify-content: flex-start;
+}
+
+.sidebar.expand .sidebar-login-btn .login-text,
+.sidebar.expand .user-profile .user-text {
+  margin-left: 10px;
+}
+
+/* user profile */
+
+.user-profile img {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+}

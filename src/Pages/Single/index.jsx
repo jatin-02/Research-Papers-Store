@@ -33,9 +33,14 @@ const SinglePage = () => {
                 natus quae sequi laboriosam rem officia delectus! Minima libero
                 excepturi, veniam voluptas corporis tempore nesciunt facere odio
               </p>
-              <a href="" className="download-btn">
-                Downlaod
-              </a>
+              <div className="details-btn">
+                <a href="" className="download-btn">
+                  Download
+                </a>
+                <a href="" className="download-btn">
+                  Save To Library
+                </a>
+              </div>
             </div>
           </div>
         </div>

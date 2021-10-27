@@ -27,9 +27,23 @@
   margin: 30px;
 }
 
+.details-btn {
+  display: flex;
+}
+
 .download-btn {
-  background-color: #ffbb00;
+  display: block;
+  border: 2px solid #ffbb00;
+  color: #ffbb00;
   padding: 10px 30px;
   border-radius: 5px;
   font-weight: 900;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .details-btn {
+    flex-direction: column;
+  }
 }
