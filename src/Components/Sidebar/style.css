@@ -119,6 +119,7 @@
   opacity: 0;
   pointer-events: none;
   transition: all 0.2s ease;
+  z-index: 9999;
 }
 
 .sidebar .menu-icon .tool-tip::before {
