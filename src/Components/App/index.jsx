@@ -9,10 +9,14 @@ import Sidebar from "../Sidebar";
 // importing pages
 import Home from "../../Pages/Home";
 import NotFound from "../../Pages/NotFound";
+import Login from "../../Pages/Login";
+import SinglePage from "../../Pages/Single";
+import Category from "../../Pages/Category";
+import History from "../../Pages/History";
 
 // importing react router dom
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "../../Pages/Login";
+import Library from "../../Pages/Library";
 
 const App = () => {
   return (
@@ -22,7 +26,10 @@ const App = () => {
         <div className="main-container">
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/login" exact component={Login} />
+            <Route path="/category" exact component={Category} />
+            <Route path="/history" exact component={History} />
+            <Route path="/library" exact component={Library} />
+            <Route path="/single" exact component={SinglePage} />
             <Route component={NotFound} />
           </Switch>
         </div>

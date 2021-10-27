@@ -1,0 +1,32 @@
+.card-container {
+  padding: 1rem;
+  width: 100%;
+  background-color: #222;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.card-container:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card-heading {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #ffbb00;
+}
+
+.card-content {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.card-detail {
+  font-weight: 300;
+  padding: 0.5rem;
+}
+
+.card-detail span {
+  font-weight: 700;
+}

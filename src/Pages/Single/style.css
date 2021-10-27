@@ -1,0 +1,49 @@
+.page-title {
+  color: #ffbb00;
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.single-page img {
+  border-radius: 10px;
+}
+
+.single-page .details {
+  margin-top: 20px;
+}
+
+.single-page h2 {
+  margin-bottom: 20px;
+}
+
+.single-page h2:last-child {
+  margin-bottom: 0;
+}
+
+.single-page p {
+  font-weight: 100;
+  margin: 30px;
+}
+
+.details-btn {
+  display: flex;
+}
+
+.download-btn {
+  display: block;
+  border: 2px solid #ffbb00;
+  color: #ffbb00;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: 900;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .details-btn {
+    flex-direction: column;
+  }
+}
