@@ -29,6 +29,7 @@ const App = () => {
             <Route path="/category" exact component={Category} />
             <Route path="/history" exact component={History} />
             <Route path="/library" exact component={Library} />
+            <Route path="/login" exact component={Login} />
             <Route path="/single" exact component={SinglePage} />
             <Route component={NotFound} />
           </Switch>
