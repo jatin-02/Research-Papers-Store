@@ -1,3 +1,7 @@
+.detail-page {
+  position: relative;
+}
+
 .page-title {
   color: #ffbb00;
   text-align: center;
@@ -6,12 +10,33 @@
   width: 100%;
 }
 
+.back-btn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  background-color: #333;
+  border: 0;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
 .detail-page img {
   border-radius: 10px;
+  max-height: 600px;
 }
 
 .detail-page .content {
   margin-top: 20px;
+}
+
+@media (min-width: 900px) {
+  .detail-page .content {
+    margin-top: 80px;
+    margin-left: 100px;
+  }
 }
 
 .detail-page h2 {
