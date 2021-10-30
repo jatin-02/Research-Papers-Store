@@ -4,16 +4,22 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
+// importing icons
+import { IoMdArrowRoundBack as BackArrowIcon } from "react-icons/io";
+
 const DetailPage = () => {
   return (
     <div className="detail-page">
+      <button className="back-btn">
+        <BackArrowIcon />
+      </button>
       <div className="container">
         <div className="row">
           <div className="col-12">
             <h1 className="page-title">Sub-Domain</h1>
           </div>
 
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-5">
             <div className="poster">
               <img
                 src="https://ars.els-cdn.com/content/image/X01968858.jpg"
@@ -22,7 +28,7 @@ const DetailPage = () => {
             </div>
           </div>
 
-          <div className="col-12 col-md-8">
+          <div className="col-12 col-md-7">
             <div className="content">
               <h2 className="title">This is title of research paper</h2>
 
