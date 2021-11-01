@@ -1,4 +1,4 @@
-[
+export default [
   {
     id: "30301",
     domain: "Chemistry",

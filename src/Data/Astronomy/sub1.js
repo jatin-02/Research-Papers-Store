@@ -1,4 +1,4 @@
-[
+export default [
   {
     id: "10101",
     domain: "Astronomy",
