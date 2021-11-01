@@ -16,7 +16,7 @@ const DetailPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1 className="page-title">Sub-Domain</h1>
+            <h1 className="page-title">Title</h1>
           </div>
 
           <div className="col-12 col-md-5">
@@ -30,9 +30,9 @@ const DetailPage = () => {
 
           <div className="col-12 col-md-7">
             <div className="content">
-              <h2 className="title">This is title of research paper</h2>
+              <h2 className="title">Topic</h2>
 
-              <h2 className="date">Domain</h2>
+              <h2 className="date">Authors</h2>
 
               <h2>Year of publication - 2018</h2>
 
