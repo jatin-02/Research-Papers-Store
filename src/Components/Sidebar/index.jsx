@@ -15,9 +15,18 @@ import { BiCategory as CategoryIcon } from "react-icons/bi";
 import { RiHistoryLine as HistoryIcon } from "react-icons/ri";
 import { BiLibrary as LibraryIcon } from "react-icons/bi";
 import { BiUser as UserIcon } from "react-icons/bi";
+import { AiOutlineLogout as LogoutIcon } from "react-icons/ai";
+
+// importing firebase
+import { auth } from "../../Firebase/config";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const Sidebar = () => {
   const [expand, setExpand] = useState(false);
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (user) => {
+    setUser(user);
+  });
   return (
     <div className={`sidebar ${expand ? "expand" : ""}`}>
       <div className="sidebar-inner">
@@ -109,24 +118,50 @@ const Sidebar = () => {
         </div>
         <div className="sidebar-footer">
           {/* login btn if user isn't logged in */}
-          <NavLink activeClassName="active" exact to="/login">
-            <div className="sidebar-login-btn">
-              <div className="user-icon">
-                <UserIcon />
+          {user != null ? (
+            <div className="user-profile" title={user?.displayName}>
+              <div className="user-img">
+                <Link to="/profile">
+                  <img src={user?.photoURL} alt={user?.displayName} />
+                </Link>
               </div>
-              {expand ? <div className="login-text">Login</div> : ""}
+              {expand ? (
+                <div className="user-text">
+                  <Link to="/profile">{user?.displayName}</Link>
+                </div>
+              ) : (
+                ""
+              )}
+
+              {expand ? (
+                <div
+                  className="logout-icon"
+                  onClick={(e) => {
+                    signOut(auth)
+                      .then((res) => {
+                        console.log(res);
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  }}
+                >
+                  <LogoutIcon />
+                </div>
+              ) : (
+                ""
+              )}
             </div>
-          </NavLink>
-          {/* profile section if user is logged in */}
-          {/* <div className="user-profile">
-            <div className="user-img">
-              <img
-                src="https://static.generated.photos/vue-static/face-generator/landing/wall/14.jpg"
-                alt="user"
-              />
-            </div>
-            {expand ? <div className="user-text">Sahil Verma</div> : ""}
-          </div> */}
+          ) : (
+            <NavLink activeClassName="active" exact to="/login">
+              <div className="sidebar-login-btn">
+                <div className="user-icon">
+                  <UserIcon />
+                </div>
+                {expand ? <div className="login-text">Login</div> : ""}
+              </div>
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
