@@ -6,26 +6,25 @@ const Card = () => {
     <div className="card">
       <div className="card-container">
         <div className="card-heading">
-          <h1>Linked List</h1>
+          <h1>Title</h1>
         </div>
 
         <div className="card-content">
           <div className="card-name card-detail">
             <p>
-              <span>Name:</span> The name of research paper name which is
-              slightly big
+              <span>Topic:</span> Topic of the research paper
             </p>
           </div>
 
           <div className="card-author card-detail">
             <p>
-              <span>by:</span> Jatin Soni, Jatin Soni, Jatin Soni and Jatin Soni
+              <span>Author:</span> Authors of research paper
             </p>
           </div>
 
           <div className="card-year card-detail">
             <p>
-              <span>Year:</span> 2020
+              <span>Year of publication:</span> 2020
             </p>
           </div>
         </div>
