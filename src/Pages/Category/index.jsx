@@ -1,36 +1,28 @@
 import React from "react";
-import Card from "../../Components/Card";
+
+// importing react router dom
 import { Link } from "react-router-dom";
+
+// importing components
+import Card from "./Card";
+
+// importing data
+import categoryData from "./CategaryCardData";
+
+// importing styles
 import "./style.css";
+
 const Category = () => {
-  const subDomains = ["Sub-Domain", "Sub-Domain"];
   return (
     <div className="category-page">
-      <div className="header">
-        <h1>Domain</h1>
-      </div>
-
-      <div className="main">
-        {subDomains.map((subdomain) => {
+      <div className="row">
+        {categoryData.map((item) => {
           return (
-            <section className="subdomains">
-              <div className="subdomain-header">
-                <h2>{subdomain}</h2>
-              </div>
-              <div className="subdomain-items">
-                <div className="col-lg-4 col-md-6 col-12 ">
-                  <Link to="/detail">
-                    <Card />
-                  </Link>
-                </div>
-
-                <div className="col-lg-4 col-md-6 col-12 ">
-                  <Link to="/detail">
-                    <Card />
-                  </Link>
-                </div>
-              </div>
-            </section>
+            <div key={item.id} className="col-md-6 col-12 p-0">
+              <Link to={`/category/${item.title}`}>
+                <Card title={item.title} imgSrc={item.imgSrc} />
+              </Link>
+            </div>
           );
         })}
       </div>

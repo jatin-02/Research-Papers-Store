@@ -1,35 +1,42 @@
-.header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0px;
-}
-.header h1{
-    color: #ffbb00;
+.category-page {
+  padding: 10px;
 }
 
-.main{
-    display: flex;
-    flex-direction: column;    
-}
-.subdomains{
-    display: flex;
-    flex-direction: column;
-}
-
-.subdomain-header{
-    display: flex;
-    justify-content: flex-start;
-    margin: 30px 0px;
+.category-card {
+  position: relative;
+  border-radius: 10px;
+  margin: 10px;
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
-.subdomain-items{
-    display: flex;
-    overflow-x: scroll;
-    gap: 1em;
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* backdrop-filter: blur(3px); */
 }
 
-/* forcing card content color white */
-.card-content{
-    color: white;
+.category-card:hover {
+  transform: scale(1.05);
+}
+
+.category-card .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  font-weight: 900;
+  color: #fff;
+  z-index: 2;
+}
+
+.category-card img {
+  height: 250px;
+  width: 100%;
 }
