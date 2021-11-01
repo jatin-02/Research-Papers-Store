@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     id: 1,
     domain: "Astronomy",
@@ -66,3 +66,5 @@ export default [
       "https://www.aracademics.com/wp-content/uploads/2021/02/AP-PHYSICS.jpg",
   },
 ];
+
+export default data;

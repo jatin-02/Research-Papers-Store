@@ -13,11 +13,12 @@ import Login from "../../Pages/Login";
 import DetailPage from "../../Pages/Detail";
 import Category from "../../Pages/Category";
 import History from "../../Pages/History";
-import SignleCategory from "../../Pages/SingleCategory";
+import SingleCategory from "../../Pages/SingleCategory";
+import Library from "../../Pages/Library";
+import Profile from "../../Pages/Profile";
 
 // importing react router dom
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Library from "../../Pages/Library";
 
 const App = () => {
   return (
@@ -28,10 +29,11 @@ const App = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/category" exact component={Category} />
-            <Route path="/category/:domain" exact component={SignleCategory} />
+            <Route path="/category/:domain" exact component={SingleCategory} />
             <Route path="/history" exact component={History} />
             <Route path="/library" exact component={Library} />
             <Route path="/login" exact component={Login} />
+            <Route path="/profile" exact component={Profile} />
             <Route path="/detail" exact component={DetailPage} />
             <Route component={NotFound} />
           </Switch>
