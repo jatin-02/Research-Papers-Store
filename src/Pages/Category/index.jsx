@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 
 // importing data
-import categoryData from "./CategaryCardData";
+import categories from "./../../Data/Categories/categories";
 
 // importing styles
 import "./style.css";
@@ -16,11 +16,11 @@ const Category = () => {
   return (
     <div className="category-page">
       <div className="row">
-        {categoryData.map((item) => {
+        {categories.map((item) => {
           return (
             <div key={item.id} className="col-md-6 col-12 p-0">
-              <Link to={`/category/${item.title}`}>
-                <Card title={item.title} imgSrc={item.imgSrc} />
+              <Link to={`/category/${item.domain}`}>
+                <Card domain={item.domain} category_img={item.category_img} />
               </Link>
             </div>
           );

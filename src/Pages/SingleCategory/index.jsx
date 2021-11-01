@@ -4,8 +4,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const SignleCategory = () => {
-  const { title } = useParams();
-  return <div className="category-page">{title} page</div>;
+  const { domain } = useParams();
+  return <div className="category-page">{domain} page</div>;
 };
 
 export default SignleCategory;

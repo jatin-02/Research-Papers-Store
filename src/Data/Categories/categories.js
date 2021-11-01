@@ -1,5 +1,6 @@
 export default [
   {
+    id: 1,
     domain: "Astronomy",
     subDomains: [
       "Astronomy and Astrophysics",
@@ -10,6 +11,7 @@ export default [
   },
 
   {
+    id: 2,
     domain: "Biology",
     subDomains: ["Biochemistry", "Genetics", "Molecular Medicine"],
     category_img:
@@ -17,6 +19,7 @@ export default [
   },
 
   {
+    id: 3,
     domain: "Chemistry",
     subDomains: [
       "Analytical chemistry",
@@ -28,6 +31,7 @@ export default [
   },
 
   {
+    id: 4,
     domain: "Computer Science",
     subDomains: [
       "Artificial Intelligence",
@@ -35,10 +39,11 @@ export default [
       "General Computer Science",
     ],
     category_img:
-      "https://previews.123rf.com/images/karpenkoilia/karpenkoilia1801/karpenkoilia180100083/94431559-line-web-concept-for-computer-science-modern-linear-symbol-for-computer-programming-open-path-.jpg",
+      "https://images1.content-hci.com/commimg/myhotcourses/blog/post/myhc_89683.jpg",
   },
 
   {
+    id: 5,
     domain: "Mathematics",
     subDomains: [
       "Algebra and Number Theory",
@@ -50,6 +55,7 @@ export default [
   },
 
   {
+    id: 6,
     domain: "Physics",
     subDomains: [
       "Atomic and Molecular Physics and Optics",
