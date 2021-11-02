@@ -172,7 +172,7 @@
 
 /* sidebar footer */
 .sidebar-footer {
-  height: 50px;
+  height: auto;
   width: 100%;
   padding: 5px;
   border-radius: 50px;
@@ -186,6 +186,13 @@
   height: 100%;
   border-radius: 50px;
   width: 100%;
+}
+
+.sidebar-footer .user-icon {
+  height: 30px;
+  width: 30px;
+  display: grid;
+  place-items: center;
 }
 
 .sidebar-footer .active svg {
