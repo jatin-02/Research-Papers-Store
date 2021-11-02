@@ -13,12 +13,13 @@
 .profile-inner {
   background-color: #222;
   padding: 20px;
-  width: 100%;
+  width: 75%;
   height: 70%;
   border-radius: 5px;
 }
 
 .profile-inner img {
+  margin-left: 50px;
   border-radius: 50%;
   height: auto;
   width: 200px;
@@ -26,13 +27,14 @@
 
 .profile-inner .data {
   margin-bottom: 10px;
+  padding: 5px;
   font-size: 20px;
   font-weight: 500;
 }
 
 .profile-inner .data span {
   color: #ffbb00;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .profile-inner button {
@@ -40,18 +42,19 @@
   align-items: center;
   margin-top: 20px;
   padding: 10px 20px;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
-  border: 0;
+  border: solid 2px #ffbb00;
   border-radius: 4px;
-  background-color: #ffbb00;
-  font-weight: 700;
-  color: #fff;
+  background-color: #222;
+  font-weight: 500;
+  color: #ffbb00;
   cursor: pointer;
 }
 
 .profile-inner button svg {
   margin-right: 10px;
-  fill: #222;
+  fill: #ffbb00;
 }
 
 @media (max-width: 768px) {
@@ -59,5 +62,12 @@
     width: 50%;
     height: auto;
     margin: 0 auto;
+  }
+
+  .profile-inner .data {
+    margin-bottom: 10px;
+    padding: 0px;
+    font-size: 18px;
+    font-weight: 500;
   }
 }

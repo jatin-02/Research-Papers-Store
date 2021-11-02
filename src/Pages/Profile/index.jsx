@@ -25,23 +25,24 @@ const Profile = () => {
     <div className="profile-page">
       <div className="profile-inner">
         <div className="row">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-6">
             <img
               src={user?.photoURL}
               alt={user?.displayName}
               className="profile-img"
             />
           </div>
-          <div className="col-12 col-md-8">
+
+          <div className="col-12 col-md-6">
             <div className="profile-detail">
               <div className="data">
-                <span>Name:</span> {user?.displayName}
+                <span>Name -</span> {user?.displayName}
               </div>
               <div className="data">
-                <span>Email:</span> {user?.email}
+                <span>Email -</span> {user?.email}
               </div>
               <div className="data">
-                <span>Library:</span> 0 papers
+                <span>Library -</span> 0 papers
               </div>
               <button className="sign-out" onClick={(e) => signOut(auth)}>
                 <LogoutIcon /> Log Out
