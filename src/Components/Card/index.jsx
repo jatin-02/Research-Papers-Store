@@ -1,30 +1,30 @@
 import React from "react";
 import "./style.css";
 
-const Card = () => {
+const Card = ({ title, topic, author, year }) => {
   return (
     <div className="card">
       <div className="card-container">
         <div className="card-heading">
-          <h1>Title</h1>
+          <h1>{title}</h1>
         </div>
 
         <div className="card-content">
           <div className="card-name card-detail">
             <p>
-              <span>Topic:</span> Topic of the research paper
+              <span>Topic:</span> {topic}
             </p>
           </div>
 
           <div className="card-author card-detail">
             <p>
-              <span>Author:</span> Authors of research paper
+              <span>Author:</span> {author}
             </p>
           </div>
 
           <div className="card-year card-detail">
             <p>
-              <span>Year of publication:</span> 2020
+              <span>Year of publication:</span> {year}
             </p>
           </div>
         </div>

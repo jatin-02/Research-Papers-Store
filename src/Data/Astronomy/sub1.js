@@ -32,8 +32,7 @@ export default [
     subDomain: "Astronomy and Astrophysics",
     title: "Planetary and Space Science",
     topic: "Bridge to the stars: A mission concept to an interstellar object",
-    author:
-      "Kimberly Moore, Samuel Courville, Sierra Ferguson, Ashley Schoenfeld, Kristie Llera, Rachana Agrawal, Daniel Brack, Peter Buhleri, Kyle Connour, Ellen Czaplinski, Michael DeLuca, Ariel Deutsch, Noah Hammond, Donald Kuettel, Angela Marusiak, Stefano Nerozzi, Jeffrey Stuart, Jesse Tarnas, Alexander Thelen, Julie Castillo-Rogez,William Smythe, Damon Landau, Karl Mitchell, Charles Budney",
+    author: "Kimberly Moore, Samuel Courville, Sierra Ferguson",
     year: 2021,
     description:
       "Exoplanet discoveries since the mid-1990's have revealed an astounding diversity of planetary systems. Studying these systems is essential to understanding planetary formation processes, as well as the development of life in the universe. Unfortunately, humanity can only observe limited aspects of exoplanetary systems by telescope, and the significant distances between stars presents a barrier to in situ exploration.",

@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+.header h1 {
+  color: #ffbb00;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.subdomains {
+  display: flex;
+  flex-direction: column;
+}
+
+.subdomain-header {
+  display: flex;
+  justify-content: flex-start;
+  margin: 30px 0px;
+}
+
+.subdomain-items {
+  display: flex;
+  overflow-x: scroll;
+  gap: 1em;
+}
+
+/* forcing card content color white */
+.card-content {
+  color: white;
+}
