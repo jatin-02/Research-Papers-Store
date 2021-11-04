@@ -36,7 +36,7 @@ const SingleCategory = () => {
         {papers?.map((paper) => {
           return (
             <div className="col-12 col-md-6 col-lg-4" key={paper.id}>
-              <Link to={`/paper/${paper.id}`}>
+              <Link to={`/detail/${paper.id}`}>
                 <Card
                   title={paper.title}
                   topic={paper.topic}
