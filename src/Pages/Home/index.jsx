@@ -1,13 +1,34 @@
-import React from "react";
-import Card from "../../Components/Card";
+import React, { useEffect, useState } from "react";
 
-// importing link
-import { Link } from "react-router-dom";
+// importing components
+import Card from "../../Components/Card";
 
 // importing styles
 import "./style.css";
 
+// importing react-router-dom
+import { Link } from "react-router-dom";
+
+// importing firebase
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../../Firebase/config";
+
 const Home = () => {
+  const [papers, setPapers] = useState([]);
+
+  const docRef = collection(firestore, "papers");
+  useEffect(() => {
+    const getData = async () => {
+      const querySnapshot = await getDocs(docRef);
+      const paperData = querySnapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+      paperData.length = 6;
+      setPapers(paperData);
+    };
+    getData();
+  }, [docRef]);
+
   return (
     <div className="home-page">
       <div className="row">
@@ -19,36 +40,20 @@ const Home = () => {
         </div>
       </div>
       <div className="card-section row">
-        <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/detail">
-            <Card />
-          </Link>
-        </div>
-        <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/detail">
-            <Card />
-          </Link>
-        </div>
-        <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/detail">
-            <Card />
-          </Link>
-        </div>
-        <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/detail">
-            <Card />
-          </Link>
-        </div>
-        <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/detail">
-            <Card />
-          </Link>
-        </div>
-        <div className="col-lg-4 col-md-6 col-12 ">
-          <Link to="/detail">
-            <Card />
-          </Link>
-        </div>
+        {papers?.map((paper) => {
+          return (
+            <div className="col-12 col-md-6 col-lg-4" key={paper.id}>
+              <Link to={`/detail/${paper.id}`}>
+                <Card
+                  title={paper.title}
+                  topic={paper.topic}
+                  author={paper.author}
+                  year={paper.year}
+                />
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

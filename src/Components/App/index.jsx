@@ -34,7 +34,7 @@ const App = () => {
             <Route path="/library" exact component={Library} />
             <Route path="/login" exact component={Login} />
             <Route path="/profile" exact component={Profile} />
-            <Route path="/detail" exact component={DetailPage} />
+            <Route path="/detail/:id" exact component={DetailPage} />
             <Route component={NotFound} />
           </Switch>
         </div>
