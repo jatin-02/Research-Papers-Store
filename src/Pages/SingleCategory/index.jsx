@@ -17,16 +17,16 @@ const SingleCategory = () => {
     collection(firestore, "papers"),
     where("domain", "==", domain)
   );
+  const getData = async () => {
+    const querySnapshot = await getDocs(q);
+    const paperData = querySnapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+    setPapers(paperData);
+  };
   useEffect(() => {
-    const getData = async () => {
-      const querySnapshot = await getDocs(q);
-      const paperData = querySnapshot.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
-      });
-      setPapers(paperData);
-    };
     getData();
-  }, [q]);
+  }, []);
   return (
     <div className="category-page">
       <div className="row">
