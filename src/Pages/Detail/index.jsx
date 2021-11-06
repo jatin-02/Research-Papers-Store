@@ -19,18 +19,18 @@ const DetailPage = () => {
   const history = useHistory();
   // console.log(id);
   const docRef = doc(firestore, "papers", `${id}`);
+  const getData = async () => {
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setPaper(docSnap.data());
+    } else {
+      // doc.data() will be undefined in this case
+      history.push("/NotFound");
+    }
+  };
   useEffect(() => {
-    const getData = async () => {
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setPaper(docSnap.data());
-      } else {
-        // doc.data() will be undefined in this case
-        history.push("/NotFound");
-      }
-    };
     getData();
-  }, [docRef]);
+  }, []);
   return (
     <div className="detail-page">
       <button className="back-btn" onClick={() => history.goBack()}>

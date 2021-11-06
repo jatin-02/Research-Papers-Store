@@ -17,17 +17,17 @@ const Home = () => {
   const [papers, setPapers] = useState([]);
 
   const docRef = collection(firestore, "papers");
+  const getData = async () => {
+    const querySnapshot = await getDocs(docRef);
+    const paperData = querySnapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+    paperData.length = 6;
+    setPapers(paperData);
+  };
   useEffect(() => {
-    const getData = async () => {
-      const querySnapshot = await getDocs(docRef);
-      const paperData = querySnapshot.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
-      });
-      paperData.length = 6;
-      setPapers(paperData);
-    };
     getData();
-  }, [docRef]);
+  }, []);
 
   return (
     <div className="home-page">
