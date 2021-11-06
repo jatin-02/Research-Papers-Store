@@ -59,7 +59,7 @@ const DetailPage = () => {
               <p className="desc">{paper?.description}</p>
 
               <div className="details-btn">
-                <a herf={paper?.pdf} className="download-btn">
+                <a href={paper?.pdf} target="_blank" className="download-btn">
                   Download
                 </a>
                 <Link to="" className="download-btn">
