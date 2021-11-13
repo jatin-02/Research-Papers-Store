@@ -10,7 +10,7 @@ import { IoMdArrowRoundBack as BackArrowIcon } from "react-icons/io";
 import { useParams, useHistory, Link } from "react-router-dom";
 
 // importing firebase
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../Firebase/config";
 
 const DetailPage = () => {
@@ -27,6 +27,13 @@ const DetailPage = () => {
       // doc.data() will be undefined in this case
       history.push("/NotFound");
     }
+  };
+  const savedRef = doc(firestore, "users", "Oc5hVoO30ehfXqVkq2OI21GBTHw2");
+  const savePaper = async () => {
+    await updateDoc(savedRef, {
+      saved: arrayUnion(`${id}`),
+    });
+    console.log(id);
   };
   useEffect(() => {
     getData();
@@ -67,9 +74,9 @@ const DetailPage = () => {
                 >
                   Download
                 </a>
-                <Link to="" className="download-btn">
+                <button onClick={savePaper} className="download-btn">
                   Save To Library
-                </Link>
+                </button>
               </div>
             </div>
           </div>

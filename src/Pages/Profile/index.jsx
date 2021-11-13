@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // importing styles
 import "./style.css";
@@ -7,27 +7,34 @@ import "./style.css";
 import { AiOutlineLogout as LogoutIcon } from "react-icons/ai";
 
 // importing firebase auth
-import { auth } from "../../Firebase/config";
-import { signOut, onAuthStateChanged } from "@firebase/auth";
+import { auth, firestore } from "../../Firebase/config";
+import { signOut } from "@firebase/auth";
 
 // importing use history
 import { useHistory } from "react-router";
+import { AuthContext } from "../../Context/Firebase";
+import { doc, onSnapshot } from "@firebase/firestore";
 
 const Profile = () => {
-  const [user, setuser] = useState(null);
+  const { user, setUser } = useContext(AuthContext);
+  const [saved, setSaved] = useState(null);
+  const id = user?.uid;
+
+  useEffect(() => {
+    const unsub = onSnapshot(doc(firestore, "users", `${id}`), (doc) => {
+      setSaved(doc.data().saved);
+    });
+    return () => unsub();
+  }, []);
   const history = useHistory();
-  onAuthStateChanged(auth, (res) => {
-    if (res === null) history.push("/");
-    setuser(res);
-    console.log(res);
-  });
+  if (user == null) history.push("/");
   return (
     <div className="profile-page">
       <div className="profile-inner">
         <div className="row">
           <div className="col-12 col-md-6">
             <img
-              src={user?.photoURL}
+              src={user?.photoURL.slice(0, user?.photoURL.length - 6)}
               alt={user?.displayName}
               className="profile-img"
             />
@@ -41,10 +48,20 @@ const Profile = () => {
               <div className="data">
                 <span>Email -</span> {user?.email}
               </div>
-              <div className="data">
-                <span>Library -</span> 0 papers
-              </div>
-              <button className="sign-out" onClick={(e) => signOut(auth)}>
+              {saved !== null ? (
+                <div className="data">
+                  <span>Library -</span> {saved.length} papers
+                </div>
+              ) : (
+                ""
+              )}
+              <button
+                className="sign-out"
+                onClick={(e) => {
+                  signOut(auth);
+                  setUser(null);
+                }}
+              >
                 <LogoutIcon /> Log Out
               </button>
             </div>

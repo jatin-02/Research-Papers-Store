@@ -61,6 +61,8 @@
   display: block;
   text-align: center;
   border: 2px solid #ffbb00;
+  background-color: transparent;
+  cursor: pointer;
   color: #ffbb00;
   padding: 10px 30px;
   border-radius: 5px;
