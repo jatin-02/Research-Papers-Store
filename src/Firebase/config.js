@@ -4,7 +4,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore/";
 import { getAuth } from "firebase/auth";
 
-const { FIREBASE_API_KEY, FIREBASE_API_ID } = process.env;
 const firebaseConfig = {
   // temp firestore database
   // apiKey: "AIzaSyAO0OE2PefvPhh1ccBdOT71_cpw8V96dxs",
@@ -22,8 +21,6 @@ const firebaseConfig = {
   messagingSenderId: "998239557805",
   appId: "1:998239557805:web:4137d0a1da3dfda4f10e24",
 };
-
-console.log(FIREBASE_API_KEY, FIREBASE_API_ID);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

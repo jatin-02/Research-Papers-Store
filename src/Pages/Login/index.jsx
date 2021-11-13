@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // importing styles
 import "./style.css";
@@ -14,15 +14,30 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-// import
+// import react router dom
 import { useHistory } from "react-router-dom";
 
+// importing firebase context
+import { AuthContext } from "../../Context/Firebase";
+
 const Login = () => {
+  //get the user state from the context
+  const { setUser } = useContext(AuthContext);
   const history = useHistory();
   onAuthStateChanged(auth, (user) => {
     if (user) history.push("/");
     console.log(user);
   });
+
+  const login = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then(({ user }) => {
+        console.log(user);
+        setUser(user);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="login-page">
       <div className="login-box">
@@ -33,19 +48,7 @@ const Login = () => {
             Research <span>It</span>
           </h1>
         </div>
-        <span
-          onClick={(e) => {
-            const provider = new GoogleAuthProvider();
-            signInWithPopup(auth, provider)
-              .then((result) => {
-                const user = result.user;
-                console.log(user);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-          }}
-        >
+        <span onClick={login}>
           <LoginBtn />
         </span>
       </div>

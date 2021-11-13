@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 // importing styles
 import "./style.css";
@@ -19,14 +19,12 @@ import { AiOutlineLogout as LogoutIcon } from "react-icons/ai";
 
 // importing firebase
 import { auth } from "../../Firebase/config";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
+import { AuthContext } from "../../Context/Firebase";
 
 const Sidebar = () => {
   const [expand, setExpand] = useState(false);
-  const [user, setUser] = useState(null);
-  onAuthStateChanged(auth, (user) => {
-    setUser(user);
-  });
+  const { user } = useContext(AuthContext);
   return (
     <div className={`sidebar ${expand ? "expand" : ""}`}>
       <div className="sidebar-inner">
