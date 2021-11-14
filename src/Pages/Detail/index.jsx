@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // importing styles
 import "./style.css";
@@ -12,11 +12,14 @@ import { useParams, useHistory, Link } from "react-router-dom";
 // importing firebase
 import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../Firebase/config";
+import { AuthContext } from "../../Context/Firebase";
 
 const DetailPage = () => {
   const [paper, setPaper] = useState([]);
   const { id } = useParams();
   const history = useHistory();
+  const { user } = useContext(AuthContext);
+  const uid = user?.uid;
   // console.log(id);
   const docRef = doc(firestore, "papers", `${id}`);
   const getData = async () => {
@@ -28,7 +31,7 @@ const DetailPage = () => {
       history.push("/NotFound");
     }
   };
-  const savedRef = doc(firestore, "users", "Oc5hVoO30ehfXqVkq2OI21GBTHw2");
+  const savedRef = doc(firestore, "users", `${uid}`);
   const savePaper = async () => {
     await updateDoc(savedRef, {
       saved: arrayUnion(`${id}`),
