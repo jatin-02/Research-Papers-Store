@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 // importing styles
 import "./style.css";
@@ -7,12 +7,13 @@ import "./style.css";
 import LoginBtn from "./LoginBtn";
 
 // importing auth
-import { auth } from "../../Firebase/config";
+import { auth, firestore } from "../../Firebase/config";
 import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
 } from "firebase/auth";
+import { setDoc, serverTimestamp, doc } from "firebase/firestore";
 
 // import react router dom
 import { useHistory } from "react-router-dom";
@@ -22,7 +23,7 @@ import { AuthContext } from "../../Context/Firebase";
 
 const Login = () => {
   //get the user state from the context
-  const { setUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const history = useHistory();
   onAuthStateChanged(auth, (user) => {
     if (user) history.push("/");
@@ -31,6 +32,7 @@ const Login = () => {
 
   const login = () => {
     const provider = new GoogleAuthProvider();
+
     signInWithPopup(auth, provider)
       .then(({ user }) => {
         console.log(user);
@@ -38,6 +40,18 @@ const Login = () => {
       })
       .catch((err) => console.log(err));
   };
+  const docRef = doc(firestore, "users", `${user?.uid}`);
+
+  useEffect(() => {
+    const unsub = setDoc(
+      docRef,
+      {
+        lastlogin: serverTimestamp(),
+      },
+      (doc) => console.log(doc)
+    );
+    return () => unsub;
+  }, [user]);
   return (
     <div className="login-page">
       <div className="login-box">
