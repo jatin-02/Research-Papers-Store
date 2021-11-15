@@ -16,7 +16,7 @@ const Library = () => {
   const { user } = useContext(AuthContext);
   const id = user?.uid;
   const history = useHistory();
-  if (user == null) history.push("/");
+  if (user == null) history.push("/login");
   useEffect(() => {
     const unsub = onSnapshot(doc(firestore, "users", `${id}`), (doc) => {
       setSaved(doc.data().saved);
