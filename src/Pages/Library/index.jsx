@@ -30,11 +30,13 @@ const Library = () => {
       const result = await Promise.all(reads);
       return result.map((v) => v.data());
     };
-    if (saved.length !== 0)
+    if (saved?.length !== 0)
       readIds(saved)
         .then((res) => setPapers(res))
         .catch((err) => console.log(err));
   }, [saved]);
+
+
   return (
     <div className="library-page">
       <div className="header">
@@ -42,8 +44,10 @@ const Library = () => {
       </div>
       <div className="card-section row">
         {papers?.map((paper, index) => {
+          console.log(papers)
           return (
             <div className="col-12 col-md-6 col-lg-4" key={index}>
+              
               <Link to={`/detail/${paper.id}`}>
                 <Card
                   title={paper.title}
