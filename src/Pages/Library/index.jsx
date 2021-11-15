@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import "./style.css";
 
 // importing firebase
-import { auth, firestore } from "../../Firebase/config";
+import { firestore } from "../../Firebase/config";
 import { doc, getDoc, onSnapshot } from "@firebase/firestore";
 
 // importing firebase context
@@ -19,7 +19,7 @@ const Library = () => {
   if (user == null) history.push("/login");
   useEffect(() => {
     const unsub = onSnapshot(doc(firestore, "users", `${id}`), (doc) => {
-      setSaved(()=> [...doc.data().saved]);
+      setSaved(() => [...doc.data().saved]);
     });
     return () => unsub();
   }, []);
@@ -33,34 +33,38 @@ const Library = () => {
     if (saved?.length !== 0)
       readIds(saved)
         .then((res) => {
-          setPapers(res)
+          setPapers(res);
         })
         .catch((err) => console.log(err));
   }, [saved]);
-
 
   return (
     <div className="library-page">
       <div className="header">
         <h1>Your Library</h1>
       </div>
-      <div className="card-section row">
-        {papers?.map((paper, index) => {
-          return (
-            <div className="col-12 col-md-6 col-lg-4" key={index}>
-              
-              <Link to={`/detail/${saved[index]}`}>
-                <Card
-                  title={paper.title}
-                  topic={paper.topic}
-                  author={paper.author}
-                  year={paper.year}
-                />
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+      {papers.length === 0 ? (
+        <div className="empty-library">
+          <h2>Your Library is Empty.</h2>
+        </div>
+      ) : (
+        <div className="card-section row">
+          {papers?.map((paper, index) => {
+            return (
+              <div className="col-12 col-md-6 col-lg-4" key={index}>
+                <Link to={`/detail/${saved[index]}`}>
+                  <Card
+                    title={paper.title}
+                    topic={paper.topic}
+                    author={paper.author}
+                    year={paper.year}
+                  />
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
