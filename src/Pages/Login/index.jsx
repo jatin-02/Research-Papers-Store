@@ -47,6 +47,7 @@ const Login = () => {
       docRef,
       {
         lastlogin: serverTimestamp(),
+        saved: [],
       },
       (doc) => console.log(doc)
     );
