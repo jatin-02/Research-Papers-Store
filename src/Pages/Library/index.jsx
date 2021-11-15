@@ -19,7 +19,7 @@ const Library = () => {
   if (user == null) history.push("/login");
   useEffect(() => {
     const unsub = onSnapshot(doc(firestore, "users", `${id}`), (doc) => {
-      setSaved(doc.data().saved);
+      setSaved(()=> [...doc.data().saved]);
     });
     return () => unsub();
   }, []);
@@ -32,7 +32,9 @@ const Library = () => {
     };
     if (saved?.length !== 0)
       readIds(saved)
-        .then((res) => setPapers(res))
+        .then((res) => {
+          setPapers(res)
+        })
         .catch((err) => console.log(err));
   }, [saved]);
 
@@ -44,11 +46,10 @@ const Library = () => {
       </div>
       <div className="card-section row">
         {papers?.map((paper, index) => {
-          console.log(papers)
           return (
             <div className="col-12 col-md-6 col-lg-4" key={index}>
               
-              <Link to={`/detail/${paper.id}`}>
+              <Link to={`/detail/${saved[index]}`}>
                 <Card
                   title={paper.title}
                   topic={paper.topic}
