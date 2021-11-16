@@ -15,27 +15,30 @@ import { firestore } from "../../Firebase/config";
 import { AuthContext } from "../../Context/Firebase";
 import { getFirestore } from "firebase/firestore"
 
+import { useGlobalContext } from "../../Context/Firebase";
 const Home = () => {
-  const [papers, setPapers] = useState([]);
   const { user } = useContext(AuthContext);
-  const docRef = collection(firestore, "papers");
-  const getData = async () => {
-    const querySnapshot = await getDocs(docRef);
-    const paperData = querySnapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-    paperData.length = 6;
-    setPapers(paperData);
-  };
+  const {paperData, loading} = useGlobalContext()
+
+  let newObj = Object.fromEntries
+              (Object.entries(paperData)
+              .map(([subject, papers]) => [subject]))
+  let subjects = []
+
+  for(let key in newObj){
+    subjects.push(key)
+  }
+ 
+
   useEffect(() => {
-    getData();
     console.log(user?.uid);
-  }, []);
+  }, []);  
 
-
-
+  if(loading){
+    return 'loadinng...'
+  }
   return (
-    <div className="home-page">
+      <div className="home-page">
       <div className="row">
         <div className="col-12 carousel">
           <img
@@ -44,7 +47,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="card-section row">
+      {/* <div className="card-section row">
         {papers?.map((paper) => {
           return (
             <div className="col-12 col-md-6 col-lg-4" key={paper.id}>
@@ -59,9 +62,9 @@ const Home = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
-  );
+    )
 };
 
 export default Home;

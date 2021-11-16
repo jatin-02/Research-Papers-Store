@@ -2,6 +2,7 @@ const data = [
   {
     id: 1,
     domain: "Astronomy",
+    route: "astronomy",
     subDomains: [
       "Astronomy and Astrophysics",
       "Physics and Astronomy (General)",
@@ -13,6 +14,7 @@ const data = [
   {
     id: 2,
     domain: "Biology",
+    route:"biology",
     subDomains: ["Biochemistry", "Genetics", "Molecular Medicine"],
     category_img:
       "https://www.pajooheshbama.com/en/wp-content/uploads/2016/11/genetics.jpg",
@@ -21,6 +23,7 @@ const data = [
   {
     id: 3,
     domain: "Chemistry",
+    route: "chemistry",
     subDomains: [
       "Analytical chemistry",
       "Inorganic chemistry",
@@ -33,6 +36,7 @@ const data = [
   {
     id: 4,
     domain: "Computer Science",
+    route: "computerScience",
     subDomains: [
       "Artificial Intelligence",
       "Computer Networks and Communications",
@@ -45,6 +49,7 @@ const data = [
   {
     id: 5,
     domain: "Mathematics",
+    route:"maths",
     subDomains: [
       "Algebra and Number Theory",
       "Discrete Mathematics and Combinatorics",
@@ -57,6 +62,7 @@ const data = [
   {
     id: 6,
     domain: "Physics",
+    route: "physics",
     subDomains: [
       "Atomic and Molecular Physics and Optics",
       "Nuclear and High Energy Physics",
