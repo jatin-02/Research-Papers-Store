@@ -2,31 +2,16 @@ import React, { useEffect, useState } from "react";
 
 // importing params and link
 import { useParams, Link } from "react-router-dom";
-
 // importing components
 import Card from "../../Components/Card/";
+import { useGlobalContext } from "../../Context/context";
 
-// firestore
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { firestore } from "../../Firebase/config";
 
 const SingleCategory = () => {
+  
   const [papers, setPapers] = useState([]);
   const { domain } = useParams();
-  const q = query(
-    collection(firestore, "papers"),
-    where("domain", "==", domain)
-  );
-  const getData = async () => {
-    const querySnapshot = await getDocs(q);
-    const paperData = querySnapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-    setPapers(paperData);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+  const {paperData} = useGlobalContext()
   return (
     <div className="category-page">
       <div className="row">
@@ -53,3 +38,5 @@ const SingleCategory = () => {
 };
 
 export default SingleCategory;
+
+

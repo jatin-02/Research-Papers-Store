@@ -1,12 +1,13 @@
 import { useEffect, createContext, useState } from "react";
-import { auth } from "../Firebase/config";
-
+import { auth, firestore } from "../Firebase/config";
+import { doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "@firebase/auth";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       setUser(res);
@@ -19,4 +20,5 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-export { AuthContext, AuthProvider };
+
+export { AuthContext, AuthProvider};
