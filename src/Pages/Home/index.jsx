@@ -10,12 +10,10 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 // importing firebase
-import { collection, getDocs, getDoc, doc, query, setDoc} from "firebase/firestore";
+import { collection, getDocs, getDoc, doc, setDoc} from "firebase/firestore";
 import { firestore } from "../../Firebase/config";
 import { AuthContext } from "../../Context/Firebase";
 import { getFirestore } from "firebase/firestore"
-import sub1 from "../../Data/Astronomy/sub1";
-import sub2 from "../../Data/Astronomy/sub2";
 
 const Home = () => {
   const [papers, setPapers] = useState([]);
@@ -34,26 +32,10 @@ const Home = () => {
     console.log(user?.uid);
   }, []);
 
-  const insertData = async()=>{
-    const docRef = collection(firestore, "researchPapers");
-    await setDoc(doc(docRef, "papers"), {
-      astronomy: [...sub1, ...sub2]
-    });
-//     const docRef = doc(firestore, "researchPapers", "papers");
-// const docSnap = await getDoc(docRef);
-
-// if (docSnap.exists()) {
-//   console.log("Document data:", docSnap.data());
-// } else {
-//   // doc.data() will be undefined in this case
-//   console.log("No such document!");
-// }
-}
 
 
   return (
     <div className="home-page">
-      <button onClick = {insertData}>insert data</button>
       <div className="row">
         <div className="col-12 carousel">
           <img
