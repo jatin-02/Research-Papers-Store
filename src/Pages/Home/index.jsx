@@ -15,20 +15,13 @@ import { firestore } from "../../Firebase/config";
 import { AuthContext } from "../../Context/Firebase";
 import { getFirestore } from "firebase/firestore"
 
+import papers from '../../Data/homePageData'
 import { useGlobalContext } from "../../Context/Firebase";
 const Home = () => {
   const { user } = useContext(AuthContext);
   const {paperData, loading} = useGlobalContext()
-
-  let newObj = Object.fromEntries
-              (Object.entries(paperData)
-              .map(([subject, papers]) => [subject]))
-  let subjects = []
-
-  for(let key in newObj){
-    subjects.push(key)
-  }
  
+
 
   useEffect(() => {
     console.log(user?.uid);
@@ -47,7 +40,7 @@ const Home = () => {
           />
         </div>
       </div>
-      {/* <div className="card-section row">
+      <div className="card-section row">
         {papers?.map((paper) => {
           return (
             <div className="col-12 col-md-6 col-lg-4" key={paper.id}>
@@ -62,7 +55,7 @@ const Home = () => {
             </div>
           );
         })}
-      </div> */}
+      </div>
     </div>
     )
 };
