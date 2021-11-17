@@ -19,7 +19,7 @@ const Category = () => {
         {categories.map((item) => {
           return (
             <div key={item.id} className="col-md-6 col-12 p-0">
-              <Link to={`/category/${item.domain}`}>
+              <Link to={`/category/${item.route}`}>
                 <Card domain={item.domain} category_img={item.category_img} />
               </Link>
             </div>
