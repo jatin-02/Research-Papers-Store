@@ -17,10 +17,11 @@ import { getFirestore } from "firebase/firestore"
 
 import papers from '../../Data/homePageData'
 import { useGlobalContext } from "../../Context/Firebase";
+
+
 const Home = () => {
   const { user } = useContext(AuthContext);
   const {paperData, loading} = useGlobalContext()
- 
 
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const Home = () => {
   }, []);  
 
   if(loading){
-    return 'loadinng...'
+    return 'loading...'
   }
   return (
       <div className="home-page">
