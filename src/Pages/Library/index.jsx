@@ -9,27 +9,28 @@ import { doc, getDoc, onSnapshot } from "@firebase/firestore";
 
 // importing firebase context
 import { AuthContext } from "../../Context/Firebase";
+import { getPaperByCategory } from "../../services/firebase";
 
 const Library = () => {
-  const [papers, setPapers] = useState([]);
-  const [saved, setSaved] = useState([]);
-  const { user } = useContext(AuthContext);
-  const id = user?.uid;
-  const history = useHistory();
+  const [papers, setPapers] = useState(null)
+  const [saved, setSaved] = useState([])
+  const { user } = useContext(AuthContext)
+  const id = user?.uid
+  const history = useHistory()
   if (user == null) history.push("/login");
   useEffect(() => {
     const unsub = onSnapshot(doc(firestore, "users", `${id}`), (doc) => {
-      setSaved(() => [...doc.data().saved]);
+      setSaved(() => [...doc.data().saved])
     });
-    return () => unsub();
+    return () => unsub()
   }, []);
   useEffect(() => {
     // fireship is great
     const readIds = async (ids) => {
-      const reads = ids.map((id) => getDoc(doc(firestore, "papers", `${id}`)));
-      const result = await Promise.all(reads);
+      const reads = ids.map((id) => getPaperByCategory(id))
+      const result = await Promise.all(reads)
       return result.map((v) => v.data());
-    };
+    }
     if (saved?.length !== 0)
       readIds(saved)
         .then((res) => {
