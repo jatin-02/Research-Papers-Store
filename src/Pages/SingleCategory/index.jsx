@@ -37,7 +37,7 @@ const SingleCategory = () => {
 
           return (
             <div className="col-12 col-md-6 col-lg-4" key={paper.id}>
-              <Link to={`/detail/${paper.id}`}>
+              <Link to={`/category/${domain}/detail/${paper.id}`}>
                 <Card
                   title={paper.title}
                   topic={paper.topic}
