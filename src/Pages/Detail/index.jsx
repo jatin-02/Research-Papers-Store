@@ -26,7 +26,7 @@ const DetailPage = () => {
   const savedRef = doc(firestore, "users", `${uid}`);
   const savePaper = async () => {
     await updateDoc(savedRef, {
-      saved: arrayUnion(`${id}`),
+      saved: arrayUnion({id: `${id}`, category: `${domain}`})
     })
   };
 
