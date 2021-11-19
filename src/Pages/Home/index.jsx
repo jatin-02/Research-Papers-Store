@@ -10,25 +10,32 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 // importing firebase
-import { collection, getDocs, getDoc, doc, setDoc} from "firebase/firestore";
-import { firestore } from "../../Firebase/config";
-import { AuthContext } from "../../Context/Firebase";
+import { collection, getDocs, getDoc, doc, setDoc} from "firebase/firestore"
+import { firestore } from "../../Firebase/config"
+import { AuthContext } from "../../Context/Firebase"
 import { getFirestore } from "firebase/firestore"
+import { useGlobalContext } from "../../Context/Firebase"
+import { getPaperByCategory } from "../../services/firebase"
 
-import papers from '../../Data/homePageData'
-import { useGlobalContext } from "../../Context/Firebase";
 const Home = () => {
   const { user } = useContext(AuthContext);
-  const {paperData, loading} = useGlobalContext()
- 
+  const [loading, setLoading] = useState(true)
+  const [papers, setPapers] = useState(null)
+  let domain = 'physics'
 
-
-  useEffect(() => {
-    console.log(user?.uid);
-  }, []);  
+  useEffect(async () => {
+    const data = await getPaperByCategory(domain)
+    if(data){
+      setPapers(data)
+      setLoading(false)
+    }
+    return ()=>{
+      data = null
+    }
+  }, [])
 
   if(loading){
-    return 'loadinng...'
+    return 'loading...'
   }
   return (
       <div className="home-page">
@@ -44,7 +51,7 @@ const Home = () => {
         {papers?.map((paper) => {
           return (
             <div className="col-12 col-md-6 col-lg-4" key={paper.id}>
-              <Link to={`/detail/${paper.id}`}>
+              <Link to={`/category/${domain}/detail/${paper.id}`}>
                 <Card
                   title={paper.title}
                   topic={paper.topic}

@@ -13,23 +13,39 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../Firebase/config";
 import { AuthContext } from "../../Context/Firebase";
-import { useGlobalContext } from "../../Context/Firebase";
+
+import { getPaperByCategory } from "../../services/firebase";
 const DetailPage = () => {
 
-  const {eachPaperData} = useGlobalContext()
-  const { id } = useParams();
+  const { domain, id } = useParams();
   const history = useHistory();
   const { user } = useContext(AuthContext);
   const uid = user?.uid;
- 
+  const [paper, setPaper] = useState(null)
+   
   const savedRef = doc(firestore, "users", `${uid}`);
   const savePaper = async () => {
     await updateDoc(savedRef, {
-      saved: arrayUnion(`${id}`),
+      saved: arrayUnion({id: `${id}`, category: `${domain}`})
     })
   };
 
-  const [paper] = eachPaperData.filter((item)=> item.id == id)
+
+  useEffect(async ()=>{
+    let data
+    const res = await getPaperByCategory(domain)
+    data = res.filter((paper)=> paper.id === id)
+    if(data){
+      console.log(data)
+      setPaper(data[0])
+    }else{
+      console.log('paper do not exist')
+    }
+    return ()=>{
+      data = null
+    }
+  }, [id])
+
 
   return (
     <div className="detail-page">
