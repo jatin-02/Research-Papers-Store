@@ -13,18 +13,23 @@ import { AuthContext } from "../../Context/Firebase";
 const Library = () => {
   const [papers, setPapers] = useState([]);
   const [saved, setSaved] = useState([]);
+  const [msg, setMsg] = useState("Loading your papers...");
   const { user } = useContext(AuthContext);
   const id = user?.uid;
   const history = useHistory();
   if (user == null) history.push("/login");
   useEffect(() => {
     const unsub = onSnapshot(doc(firestore, "users", `${id}`), (doc) => {
-      setSaved(() => [...doc.data().saved]);
+      if (doc.data()?.saved)
+        setSaved(() => [...doc.data()?.saved]);
+      else
+        setSaved(null)
     });
     return () => unsub();
   }, []);
   useEffect(() => {
     // fireship is great
+    if (saved === null) setMsg("Your library is empty.");
     const readIds = async (ids) => {
       const reads = ids.map((id) => getDoc(doc(firestore, "papers", `${id}`)));
       const result = await Promise.all(reads);
@@ -38,6 +43,7 @@ const Library = () => {
         .catch((err) => console.log(err));
   }, [saved]);
 
+
   return (
     <div className="library-page">
       <div className="header">
@@ -45,7 +51,7 @@ const Library = () => {
       </div>
       {papers.length === 0 ? (
         <div className="empty-library">
-          <h2>Your Library is Empty.</h2>
+          <h2>{msg}</h2>
         </div>
       ) : (
         <div className="card-section row">
