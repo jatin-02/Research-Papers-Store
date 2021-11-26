@@ -13,24 +13,34 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../Firebase/config";
 import { AuthContext } from "../../Context/Firebase";
-import { useGlobalContext } from "../../Context/Firebase";
-const DetailPage = () => {
 
-  const {eachPaperData} = useGlobalContext()
+const DetailPage = () => {
+  const [paper, setPaper] = useState([]);
   const { id } = useParams();
   const history = useHistory();
   const { user } = useContext(AuthContext);
   const uid = user?.uid;
- 
+  // console.log(id);
+  const docRef = doc(firestore, "papers", `${id}`);
+  const getData = async () => {
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setPaper(docSnap.data());
+    } else {
+      // doc.data() will be undefined in this case
+      history.push("/NotFound");
+    }
+  };
   const savedRef = doc(firestore, "users", `${uid}`);
   const savePaper = async () => {
     await updateDoc(savedRef, {
       saved: arrayUnion(`${id}`),
-    })
+    });
+    console.log(id);
   };
-
-  const [paper] = eachPaperData.filter((item)=> item.id == id)
-
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className="detail-page">
       <button className="back-btn" onClick={() => history.goBack()}>
