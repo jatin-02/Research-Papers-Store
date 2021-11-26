@@ -36,7 +36,7 @@ const data = [
   {
     id: 4,
     domain: "Computer Science",
-    route: "computerscience",
+    route: "computerScience",
     subDomains: [
       "Artificial Intelligence",
       "Computer Networks and Communications",
@@ -49,7 +49,7 @@ const data = [
   {
     id: 5,
     domain: "Mathematics",
-    route:"mathematics",
+    route:"maths",
     subDomains: [
       "Algebra and Number Theory",
       "Discrete Mathematics and Combinatorics",

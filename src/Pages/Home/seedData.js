@@ -29,14 +29,12 @@ import { firestore } from "../../Firebase/config";
 export const seedData = async()=>{
     console.log("seeding data")
     const docRef = collection(firestore, "researchPapers");
-    await setDoc(doc(docRef, "physics"), {
-      // astronomy: [...asub1, ...asub2],
-      // biology: [...bsub1, ...bsub2, ...bsub3],
-      // chemistry: [...csub1, ...csub2, ...csub3],
-      // computerscience: [...cssub1, ...cssub2, ...cssub3],
-      // mathematics: [...msub1, ...msub2, ...msub3],
+    await setDoc(doc(docRef, "papers"), {
+      astronomy: [...asub1, ...asub2],
+      biology: [...bsub1, ...bsub2, ...bsub3],
+      chemistry: [...csub1, ...csub2, ...csub3],
+      computerScience: [...cssub1, ...cssub2, ...cssub3],
+      maths: [...msub1, ...msub2, ...msub3],
       physics: [...psub1, ...psub2, ...psub3],
     });
-
-
 }
