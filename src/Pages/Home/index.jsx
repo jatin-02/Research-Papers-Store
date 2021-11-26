@@ -10,28 +10,29 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 // importing firebase
-import { collection, getDocs, getDoc, doc, setDoc} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "../../Firebase/config";
 import { AuthContext } from "../../Context/Firebase";
-import { getFirestore } from "firebase/firestore"
 
-import papers from '../../Data/homePageData'
-import { useGlobalContext } from "../../Context/Firebase";
 const Home = () => {
+  const [papers, setPapers] = useState([]);
   const { user } = useContext(AuthContext);
-  const {paperData, loading} = useGlobalContext()
- 
-
-
+  const docRef = collection(firestore, "papers");
+  const getData = async () => {
+    const querySnapshot = await getDocs(docRef);
+    const paperData = querySnapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+    paperData.length = 6;
+    setPapers(paperData);
+  };
   useEffect(() => {
+    getData();
     console.log(user?.uid);
-  }, []);  
+  }, []);
 
-  if(loading){
-    return 'loadinng...'
-  }
   return (
-      <div className="home-page">
+    <div className="home-page">
       <div className="row">
         <div className="col-12 carousel">
           <img
@@ -57,7 +58,7 @@ const Home = () => {
         })}
       </div>
     </div>
-    )
+  );
 };
 
 export default Home;

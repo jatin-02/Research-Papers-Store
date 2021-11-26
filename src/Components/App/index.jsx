@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 // importing styles
 import "./style.css";
@@ -21,14 +21,11 @@ import Profile from "../../Pages/Profile";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // importing firebase context
-import { AuthProvider, useGlobalContext } from "../../Context/Firebase";
+import { AuthProvider } from "../../Context/Firebase";
 
 const App = () => {
-
-  
-  
   return (
-        <AuthProvider>
+    <AuthProvider>
       <div className="app">
         <Router>
           <Sidebar />
