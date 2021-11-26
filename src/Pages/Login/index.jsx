@@ -47,8 +47,8 @@ const Login = () => {
       docRef,
       {
         lastlogin: serverTimestamp(),
-        saved: [],
       },
+      { merge: true },
       (doc) => console.log(doc)
     );
     return () => unsub;
