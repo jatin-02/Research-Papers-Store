@@ -27,7 +27,6 @@ const Login = () => {
   const history = useHistory();
   onAuthStateChanged(auth, (user) => {
     if (user) history.push("/");
-    console.log(user);
   });
 
   const login = () => {
