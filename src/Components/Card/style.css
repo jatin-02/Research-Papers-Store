@@ -7,6 +7,34 @@
   margin-bottom: 20px;
 }
 
+.card {
+  overflow: hidden;
+  position: relative;
+}
+
+.card .del-icon {
+  position: absolute;
+  top: -100%;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  background-color: #111;
+  color: #ffbb00;
+  border-radius: 3px;
+  height: 30px;
+  width: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover .del-icon {
+  top: 10px;
+}
+
+.del-icon:hover {
+  transform: scale(1.07);
+}
+
 .card-container:hover {
   box-shadow: rgba(139, 136, 132, 0.2) 0px 2px 8px 0px;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import Card from "../../Components/Card";
-import { Link, useHistory } from "react-router-dom";
+import LibraryCard from "./LibraryCard";
+
+import { useHistory } from "react-router-dom";
 import "./style.css";
 
 // importing firebase
@@ -37,6 +38,7 @@ const Library = () => {
       readIds(saved)
         .then((res) => {
           setPapers(res);
+          console.log(res);
         })
         .catch((err) => console.log(err));
   }, [saved]);
@@ -55,14 +57,13 @@ const Library = () => {
           {papers?.map((paper, index) => {
             return (
               <div className="col-12 col-md-6 col-lg-4" key={index}>
-                <Link to={`/detail/${saved[index]}`}>
-                  <Card
-                    title={paper.title}
-                    topic={paper.topic}
-                    author={paper.author}
-                    year={paper.year}
-                  />
-                </Link>
+                <LibraryCard
+                  title={paper.title}
+                  topic={paper.topic}
+                  author={paper.author}
+                  id={saved[index]}
+                  year={paper.year}
+                />
               </div>
             );
           })}
