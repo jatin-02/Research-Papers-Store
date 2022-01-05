@@ -12,7 +12,6 @@ import { BiMenuAltRight as MenuCloseIcon } from "react-icons/bi";
 import { BiSearch as SearchIcon } from "react-icons/bi";
 import { GrHomeRounded as HomeIcon } from "react-icons/gr";
 import { BiCategory as CategoryIcon } from "react-icons/bi";
-import { RiHistoryLine as HistoryIcon } from "react-icons/ri";
 import { BiLibrary as LibraryIcon } from "react-icons/bi";
 import { BiUser as UserIcon } from "react-icons/bi";
 import { AiOutlineLogout as LogoutIcon } from "react-icons/ai";
@@ -87,18 +86,6 @@ const Sidebar = () => {
                 <div className="tool-tip">Category</div>
               </div>
               {expand ? <div className="menu-text">Category</div> : ""}
-            </NavLink>
-            <NavLink
-              to="/history"
-              activeClassName="active"
-              exact
-              className="list-item"
-            >
-              <div className="menu-icon">
-                <HistoryIcon />
-                <div className="tool-tip">History</div>
-              </div>
-              {expand ? <div className="menu-text">History</div> : ""}
             </NavLink>
             <NavLink
               to="/library"

@@ -14,20 +14,18 @@ import { AuthContext } from "../../Context/Firebase";
 const Library = () => {
   const [papers, setPapers] = useState([]);
   const [saved, setSaved] = useState([]);
-  const [msg, setMsg] = useState("Loading your papers...");
+  const [msg, setMsg] = useState();
   const { user } = useContext(AuthContext);
   const id = user?.uid;
   const history = useHistory();
   if (user == null) history.push("/login");
   useEffect(() => {
     const unsub = onSnapshot(doc(firestore, "users", `${id}`), (doc) => {
-      if (doc.data()?.saved)
-        setSaved(() => [...doc.data()?.saved]);
-      else
-        setSaved(null)
+      if (doc.data()?.saved) setSaved(() => [...doc.data()?.saved]);
+      else setSaved(null);
     });
     return () => unsub();
-  }, []);
+  }, [id]);
   useEffect(() => {
     // fireship is great
     if (saved === null) setMsg("Your library is empty.");
@@ -40,11 +38,10 @@ const Library = () => {
       readIds(saved)
         .then((res) => {
           setPapers(res);
-          console.log(res);
         })
         .catch((err) => console.log(err));
+    if (saved?.length === 0) setMsg("Empty");
   }, [saved]);
-
 
   return (
     <div className="library-page">

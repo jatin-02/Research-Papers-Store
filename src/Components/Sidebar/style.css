@@ -16,7 +16,7 @@
 }
 
 .sidebar.expand {
-  width: 300px;
+  min-width: 300px;
 }
 
 .sidebar svg {
