@@ -51,11 +51,11 @@ const Library = () => {
   return (
     <div className="library-page">
       {loading && <div className="loading">Loading...</div>}
-      {!loading && saved.length === 0 && (
+      {!loading && saved?.length === 0 && (
         <div className="loading">Empty library</div>
       )}
 
-      {!loading && saved.length !== 0 && (
+      {!loading && saved?.length !== 0 && (
         <>
           <div className="header">
             <h1>Your Library</h1>
