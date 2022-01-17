@@ -578,11 +578,13 @@ code {
 
 /* app styling */
 
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+  display: block !important;
+}
+
 .app {
   display: flex;
   width: 100vw;
-  max-width: 1300px;
-  margin: 0 auto;
 }
 
 .main-container {

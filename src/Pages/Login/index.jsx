@@ -34,7 +34,6 @@ const Login = () => {
 
     signInWithPopup(auth, provider)
       .then(({ user }) => {
-        console.log(user);
         setUser(user);
       })
       .catch((err) => console.log(err));
@@ -51,7 +50,7 @@ const Login = () => {
       (doc) => console.log(doc)
     );
     return () => unsub;
-  }, [user]);
+  }, [user, docRef]);
   return (
     <div className="login-page">
       <div className="login-box">

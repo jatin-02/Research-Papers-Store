@@ -11,6 +11,13 @@
   display: flex;
   flex-direction: column;
 }
+.loading {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  font-size: 25px;
+  place-items: center;
+}
 
 .category {
   display: flex;

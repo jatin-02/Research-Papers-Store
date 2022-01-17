@@ -15,7 +15,6 @@ const LibraryCard = ({ title, id, topic, author, year }) => {
       <div
         className="del-icon"
         onClick={() => {
-          console.log(id);
           const delEle = async () => {
             await updateDoc(doc(firestore, "users", `${uid}`), {
               saved: arrayRemove(`${id}`),

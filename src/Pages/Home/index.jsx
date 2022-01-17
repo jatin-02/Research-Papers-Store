@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 
 // importing components
 import Card from "../../Components/Card";
@@ -12,24 +12,22 @@ import { Link } from "react-router-dom";
 // importing firebase
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "../../Firebase/config";
-import { AuthContext } from "../../Context/Firebase";
 
 const Home = () => {
   const [papers, setPapers] = useState([]);
-  const { user } = useContext(AuthContext);
   const docRef = collection(firestore, "papers");
-  const getData = async () => {
-    const querySnapshot = await getDocs(docRef);
-    const paperData = querySnapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-    paperData.length = 6;
-    setPapers(paperData);
-  };
+
   useEffect(() => {
+    const getData = async () => {
+      const querySnapshot = await getDocs(docRef);
+      const paperData = querySnapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+      paperData.length = 6;
+      setPapers(paperData);
+    };
     getData();
-    console.log(user?.uid);
-  }, []);
+  }, [docRef]);
 
   return (
     <div className="home-page">
@@ -37,7 +35,7 @@ const Home = () => {
         <div className="col-12 carousel">
           <img
             src="https://www.wallpapertip.com/wmimgs/12-125679_cool-background.jpg"
-            alt="iron man"
+            alt="nothing"
           />
         </div>
       </div>

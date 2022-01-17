@@ -25,7 +25,7 @@ const Profile = () => {
       setSaved(doc.data().saved);
     });
     return () => unsub();
-  }, []);
+  }, [id]);
   const history = useHistory();
   if (user == null) history.push("/");
   return (

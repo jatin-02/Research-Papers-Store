@@ -63,7 +63,7 @@ const data = [
       "Radiation",
     ],
     category_img:
-      "https://www.aracademics.com/wp-content/uploads/2021/02/AP-PHYSICS.jpg",
+      "https://api.army.mil/e2/c/images/2020/11/19/118ede88/size0-full.jpg",
   },
 ];
 
