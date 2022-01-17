@@ -28,6 +28,7 @@ const Library = () => {
   }, [id]);
   useEffect(() => {
     // fireship is great
+    if (saved === null) setMsg("Your library is empty.");
     const readIds = async (ids) => {
       const reads = ids.map((id) => getDoc(doc(firestore, "papers", `${id}`)));
       const result = await Promise.all(reads);
