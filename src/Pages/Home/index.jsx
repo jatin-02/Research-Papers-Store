@@ -35,7 +35,7 @@ const Home = () => {
         <div className="col-12 carousel">
           <img
             src="https://www.wallpapertip.com/wmimgs/12-125679_cool-background.jpg"
-            alt="iron man"
+            alt="nothing"
           />
         </div>
       </div>

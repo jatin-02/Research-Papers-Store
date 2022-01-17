@@ -14,7 +14,7 @@ import { AuthContext } from "../../Context/Firebase";
 const Library = () => {
   const [papers, setPapers] = useState([]);
   const [saved, setSaved] = useState([]);
-  const [msg, setMsg] = useState();
+  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const id = user?.uid;
   const history = useHistory();
@@ -28,7 +28,6 @@ const Library = () => {
   }, [id]);
   useEffect(() => {
     // fireship is great
-    if (saved === null) setMsg("Your library is empty.");
     const readIds = async (ids) => {
       const reads = ids.map((id) => getDoc(doc(firestore, "papers", `${id}`)));
       const result = await Promise.all(reads);
@@ -38,36 +37,45 @@ const Library = () => {
       readIds(saved)
         .then((res) => {
           setPapers(res);
+          setLoading(false);
         })
-        .catch((err) => console.log(err));
-    if (saved?.length === 0) setMsg("Empty");
+        .catch((err) => {
+          setLoading(false);
+          console.log(err);
+        });
+    if (saved?.length === 0) {
+      setLoading(false);
+    }
   }, [saved]);
 
   return (
     <div className="library-page">
-      <div className="header">
-        <h1>Your Library</h1>
-      </div>
-      {papers.length === 0 ? (
-        <div className="empty-library">
-          <h2>{msg}</h2>
-        </div>
-      ) : (
-        <div className="card-section row">
-          {papers?.map((paper, index) => {
-            return (
-              <div className="col-12 col-md-6 col-lg-4" key={index}>
-                <LibraryCard
-                  title={paper.title}
-                  topic={paper.topic}
-                  author={paper.author}
-                  id={saved[index]}
-                  year={paper.year}
-                />
-              </div>
-            );
-          })}
-        </div>
+      {loading && <div className="loading">Loading...</div>}
+      {!loading && saved.length === 0 && (
+        <div className="loading">Empty library</div>
+      )}
+
+      {!loading && saved.length !== 0 && (
+        <>
+          <div className="header">
+            <h1>Your Library</h1>
+          </div>
+          <div className="card-section row">
+            {papers?.map((paper, index) => {
+              return (
+                <div className="col-12 col-md-6 col-lg-4" key={index}>
+                  <LibraryCard
+                    title={paper.title}
+                    topic={paper.topic}
+                    author={paper.author}
+                    id={saved[index]}
+                    year={paper.year}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );

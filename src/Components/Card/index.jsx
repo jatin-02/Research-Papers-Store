@@ -18,7 +18,7 @@ const Card = ({ title, topic, author, year }) => {
 
           <div className="card-author card-detail">
             <p>
-              <span>Author:</span> {author}
+              <span>Author:</span> {author.join(" ,")}
             </p>
           </div>
 

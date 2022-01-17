@@ -87,18 +87,20 @@ const Sidebar = () => {
               </div>
               {expand ? <div className="menu-text">Category</div> : ""}
             </NavLink>
-            <NavLink
-              to="/library"
-              activeClassName="active"
-              exact
-              className="list-item"
-            >
-              <div className="menu-icon">
-                <LibraryIcon />
-                <div className="tool-tip">Library</div>
-              </div>
-              {expand ? <div className="menu-text">Library</div> : ""}
-            </NavLink>
+            {user && (
+              <NavLink
+                to="/library"
+                activeClassName="active"
+                exact
+                className="list-item"
+              >
+                <div className="menu-icon">
+                  <LibraryIcon />
+                  <div className="tool-tip">Library</div>
+                </div>
+                {expand ? <div className="menu-text">Library</div> : ""}
+              </NavLink>
+            )}
           </div>
         </div>
         <div className="sidebar-footer">

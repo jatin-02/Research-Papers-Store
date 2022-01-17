@@ -62,7 +62,7 @@ const DetailPage = () => {
             <div className="content">
               <h2 className="title">{paper?.domain}</h2>
 
-              <h2 className="date">{paper?.author}</h2>
+              <h2 className="date">{paper?.author?.join(", ")}</h2>
 
               <h2>Year of publication - {paper?.year}</h2>
 
@@ -77,9 +77,11 @@ const DetailPage = () => {
                 >
                   Download
                 </a>
-                <button onClick={savePaper} className="download-btn">
-                  Save To Library
-                </button>
+                {user && (
+                  <button onClick={savePaper} className="download-btn">
+                    Save To Library
+                  </button>
+                )}
               </div>
             </div>
           </div>
